@@ -13,10 +13,13 @@ async function main() {
   const flashLoan = await FlashLoan.deploy(
     "0x012bAC54348C0E635dCAc9D5FB99f06F24136C9A"
   );
+  try {
+    const response = await flashLoan.deployed();
+    console.log("Flash loan contract deployed: ", flashLoan.address);
+  } catch (error) {
+    console.log("error: ", error);
+  }
 
-  await flashLoan.deployed();
-
-  console.log("Flash loan contract deployed: ", flashLoan.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
