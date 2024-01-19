@@ -7,13 +7,11 @@
 const hre = require("hardhat");
 
 async function main() {
-  const gasLimit = 106578;
   const FlashLoan = await hre.ethers.getContractFactory("FlashLoan");
 
   //https://docs.aave.com/developers/deployed-contracts/v3-testnet-addresses
   const flashLoan = await FlashLoan.deploy(
-    "0x012bAC54348C0E635dCAc9D5FB99f06F24136C9A",
-    {gasLimit}
+    "0x012bAC54348C0E635dCAc9D5FB99f06F24136C9A"
   );
   try {
     const response = await flashLoan.deployed();
